@@ -43,8 +43,7 @@
 
     _validator.createError = function(input) {
       var errorMessage = input.getAttribute(settings.error_text_data_attribute),
-          errorMessageNode = document.createElement("span"),
-          inputLabel = input.nextSibling.nextSibling;
+          errorMessageNode = document.createElement("span");
 
       input.classList.add(settings.errored_input_classname);
       errorMessageNode.classList.add(settings.error_text_classname);
