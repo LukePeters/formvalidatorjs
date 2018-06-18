@@ -1,4 +1,4 @@
-let settings = {
+var settings = {
   errored_input_classname: "errored",
   error_text_classname: "input-error",
   error_text_data_attribute: "data-error-text"
