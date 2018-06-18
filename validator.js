@@ -1,13 +1,15 @@
-// To be expanded upon, but it's a good start.
-// Example field: <input type="email" name="email" id="field_email" class="field full" required data-error-message="Please enter a valid email address">
+let settings = {
+  errored_input_classname: "errored",
+  error_text_classname: "input-error",
+  error_text_data_attribute: "data-error-text"
+};
 
-// Use it in JavaScript like this (Vue.js, React.js, AngularJS, it doesn't matter):
-// import checkForm from "validator";
-// if(checkForm(event.target)) {
-//     myFormActionFunction();
-// }
+export default function checkForm(form, settings_override) {
 
-export default function checkForm(form) {
+  if(settings_override) {
+    settings = Object.assign(settings, settings_override);
+  }
+  
   resetForm(form);
   
   var errorsFound = false,
@@ -36,25 +38,23 @@ for(var i=0; i < requiredInputs.length; i++) {
 }
 
 export function createError(input) {
-  var errorMessage = input.getAttribute("data-error-message"),
-      errorMessageNode = document.createElement("span"),
-      inputLabel = input.nextSibling.nextSibling;
+  var errorMessage = input.getAttribute(settings.error_text_data_attribute),
+      errorMessageNode = document.createElement("span");
 
-  input.classList.add("input-field--has-error");
-  errorMessageNode.classList.add("input-error");
+  input.classList.add(settings.errored_input_classname);
+  errorMessageNode.classList.add(settings.error_text_classname);
   errorMessageNode.innerText = errorMessage;
 
-  // Insert error message directly after the input element
   input.parentNode.insertBefore(errorMessageNode, input.nextSibling);
 }
 
 export function resetForm(form) {
-  var erroredInputs = form.querySelectorAll(".input-field--has-error"),
-      errorMessageNodes = form.querySelectorAll(".input-error");
+  var erroredInputs = form.querySelectorAll("." + settings.errored_input_classname),
+      errorMessageNodes = form.querySelectorAll("." + settings.error_text_classname);
 
   for(var j=0; j < erroredInputs.length; j++) {
       var input = erroredInputs[j];
-      input.classList.remove("input-field--has-error");
+      input.classList.remove(settings.errored_input_classname);
   }
   
   for(var k=0; k < errorMessageNodes.length; k++) {
