@@ -6,7 +6,7 @@ A very basic form validation library for any website or JavaScript app.
 
 First, setup your HTML form:
 
-```
+```html
 <form name="myForm" novalidate>
 
   <div class="input-wrap">
@@ -18,18 +18,18 @@ First, setup your HTML form:
 
 Then, place ```validator.js``` inside your project and make sure the import below points to the correct file location:
 
-```
+```javascript
 import checkForm from "validator";
 ```
 
-Finally, use the ```checkForm()``` function like this, making sure to pass in the form object (via ```event.target```, in this case):
+Finally, use the ```checkForm()``` function like this, making sure to pass in the form object:
 
-```
+```javascript
 const myForm = document.querySelector("form[name=myForm]");
 
-myForm.addEventListener("submit", function(event) {
+myForm.addEventListener("submit", function() {
 
-  if(checkForm(event.target)) {
+  if(checkForm(myForm)) {
     // If all required form fields are validated, continue processing form
   }
 
@@ -40,13 +40,13 @@ myForm.addEventListener("submit", function(event) {
 
 First, place ```validator-standalone.js``` into your page:
 
-```
+```html
 <script src="validator-standalone.js"></script>
 ```
 
 Then, setup your HTML form:
 
-```
+```html
 <form name="myForm" novalidate>
 
   <div class="input-wrap">
@@ -56,14 +56,14 @@ Then, setup your HTML form:
 </form>
 ```
 
-Finally, use the ```validator.checkForm()``` function like this, making sure to pass in the form object (via ```event.target```, in this case):
+Finally, use the ```validator.checkForm()``` function like this, making sure to pass in the form object:
 
-```
+```javascript
 const myForm = document.querySelector("form[name=myForm]");
 
-myForm.addEventListener("submit", function(event) {
+myForm.addEventListener("submit", function() {
 
-  if(validator.checkForm(event.target)) {
+  if(validator.checkForm(myForm)) {
     // If all required form fields are validated, continue processing form
   }
 
@@ -74,7 +74,7 @@ myForm.addEventListener("submit", function(event) {
 
 You can create a settings object for custom classnames and data attribute name:
 
-```
+```javascript
 const customSettings = {
   errored_input_classname: "custom-classname",
   error_text_classname: "custom-classname",
@@ -82,10 +82,10 @@ const customSettings = {
 };
 ```
 
-Then simply pass the custom settings object into the ```checkForm()``` or ```validator.checkForm()``` function (as the second argument):
+Then simply pass the custom settings object into the ```checkForm()``` or ```validator.checkForm()``` function as the second argument:
 
-```
-checkForm(formToValidate, customSettings)
+```javascript
+checkForm(myForm, customSettings)
 ```
 
 ## Styling
