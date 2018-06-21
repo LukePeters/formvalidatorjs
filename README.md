@@ -111,6 +111,14 @@ By default, errored inputs will receive a class of ```.errored```, and appended 
 
 Feel free to reach out on Twitter: [@MoonlightLuke](https://twitter.com/MoonlightLuke)
 
-## Disclaimer
+## Todo
 
-**Yes**, I know this is an incredibly basic library. But I've used it myself in several projects now, so why not open source it? At the very least, it'll be easier for me to grab for each new project. But I do also plan on continually improving it over time.
+- Test with a wide variety of input types and variations:
+  - Radio buttons
+  - Checkboxes
+  - Min/max attributes
+  - Disabled attribute
+- Include minified versions for both variations (ES6 module and standalone library)
+- Test cross-browser and cross-device
+- Implement a main source file and build script that generates the final distribution files
+- Implement automated tests
