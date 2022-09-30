@@ -2,6 +2,8 @@
 
 A very basic form validation library for any website or JavaScript app.
 
+Try it out: [Demo](https://labs.lukepeters.me/formvalidatorjs/demo/)
+
 ## Option 1: ES6 Module
 
 First, setup your HTML form:
